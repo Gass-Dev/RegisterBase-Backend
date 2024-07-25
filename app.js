@@ -1,45 +1,24 @@
-const mysql = require("mysql2");
-const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
+const connectDB = require("./database"); // Importer la connexion à la base de données
+const User = require('./model/user');
 
 dotenv.config();
-console.log({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  port: process.env.MYSQL_PORT,
-});
-const pool = mysql
-  .createPool({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
-    port: process.env.MYSQL_PORT,
-  })
-  .promise();
 
-pool
-  .getConnection()
-  .then(() => console.log("success db connection"))
-  .catch((e) => console.log(e));
+connectDB(); // Connecter à la base de données
 
 /**
  * @description Get All users
  * @route GET /users
  */
-
 const getAllUsers = async function (req, res, next) {
-  let sql = "SELECT * FROM user";
   try {
-    const [rows] = await pool.query(sql);
-    if (!rows.length) return res.status(200).json({ users: [] });
-
-    return res.status(200).json({ users: rows });
-  } catch (error) {
-    next(error);
+    const users = await User.find({});
+    return res.status(200).json({ utilisateurs: users });
+  } catch (e) {
+    console.log(e);
+    throw e;
   }
 };
 
