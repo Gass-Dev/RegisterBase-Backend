@@ -1,3 +1,6 @@
+const prettierConfig = require("eslint-config-prettier");
+const prettierPlugin = require("eslint-plugin-prettier");
+
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = [
   {
@@ -17,6 +20,17 @@ module.exports = [
       semi: ["error", "always"],
       quotes: ["error", "double"],
     },
-    extends: ["eslint:recommended", "plugin:prettier/recommended"],
+  },
+  {
+    rules: prettierConfig.rules,
+  },
+  {
+    plugins: {
+      prettier: prettierPlugin,
+    },
+    rules: {
+      ...prettierPlugin.configs.recommended.rules,
+      "prettier/prettier": "error",
+    },
   },
 ];
