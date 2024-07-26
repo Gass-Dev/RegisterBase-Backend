@@ -29,6 +29,7 @@ const app = express();
 
 const corsOptions = {
   origin: "*",
+  origin: process.env.FRONT_URL,
   optionsSuccessStatus: 200,
 };
 
