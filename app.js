@@ -1,12 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const connectDB = require("./database"); // Importer la connexion à la base de données
-const User = require('./model/user');
+const connectDB = require("./database");
+const User = require("./model/user");
 
 dotenv.config();
 
-connectDB(); // Connecter à la base de données
+connectDB();
 
 /**
  * @description Get All users
@@ -17,8 +17,7 @@ const getAllUsers = async function (req, res, next) {
     const users = await User.find({});
     return res.status(200).json({ utilisateurs: users });
   } catch (e) {
-    console.log(e);
-    throw e;
+    next(e);
   }
 };
 
@@ -38,5 +37,10 @@ app.use(express.json());
 
 // API routes
 app.use("/users", router);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ error: err.message });
+});
 
 module.exports = app;
