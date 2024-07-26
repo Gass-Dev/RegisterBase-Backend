@@ -29,9 +29,24 @@ describe("GET /users", () => {
 
   it("should return a list of users", async () => {
     const users = [
-      { email: "sean_bean@gameofthron.es", name: "Ned Stark", password: "$2b$12$UREFwsRUoyF0CRqGNK0LzO0HM/jLhgUCNNIJ9RJAqMUQ74crlJ1Vu" },
-      { email: "mark_addy@gameofthron.es", name: "Robert Baratheon", password: "$2b$12$yGqxLG9LZpXA2xVDhuPnSOZd.VURVkz7wgOLY3pnO0s7u2S1ZO32y" },
-      { email: "nikolaj_coster-waldau@gameofthron.es", name: "Jaime Lannister", password: "$2b$12$6vz7wiwO.EI5Rilvq1zUc./9480gb1uPtXcahDxIadgyC3PS8XCUK" }
+      {
+        email: "sean_bean@gameofthron.es",
+        name: "Ned Stark",
+        password:
+          "$2b$12$UREFwsRUoyF0CRqGNK0LzO0HM/jLhgUCNNIJ9RJAqMUQ74crlJ1Vu",
+      },
+      {
+        email: "mark_addy@gameofthron.es",
+        name: "Robert Baratheon",
+        password:
+          "$2b$12$yGqxLG9LZpXA2xVDhuPnSOZd.VURVkz7wgOLY3pnO0s7u2S1ZO32y",
+      },
+      {
+        email: "nikolaj_coster-waldau@gameofthron.es",
+        name: "Jaime Lannister",
+        password:
+          "$2b$12$6vz7wiwO.EI5Rilvq1zUc./9480gb1uPtXcahDxIadgyC3PS8XCUK",
+      },
       // Ajoute ici tous les autres utilisateurs
     ];
 
