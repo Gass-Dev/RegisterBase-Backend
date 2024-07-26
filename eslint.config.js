@@ -14,22 +14,15 @@ module.exports = [
         __dirname: "readonly",
       },
     },
+    plugins: {
+      prettier: prettierPlugin,
+    },
     rules: {
       "no-unused-vars": ["warn", { args: "none" }],
       "no-console": "off",
       semi: ["error", "always"],
       quotes: ["error", "double"],
-    },
-  },
-  {
-    rules: prettierConfig.rules,
-  },
-  {
-    plugins: {
-      prettier: prettierPlugin,
-    },
-    rules: {
-      ...prettierPlugin.configs.recommended.rules,
+      ...prettierConfig.rules,
       "prettier/prettier": "error",
     },
   },
