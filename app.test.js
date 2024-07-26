@@ -5,7 +5,7 @@ const User = require("./model/user");
 const connectDB = require("./database");
 const dotenv = require("dotenv");
 
-dotenv.config(); // Charger les variables d'environnement
+dotenv.config();
 
 beforeAll(async () => {
   await connectDB();
