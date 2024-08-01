@@ -8,5 +8,10 @@
       "name": "Saiko",
       "email": "saiko@gmail.com",
       "done": false
-    }
+    },
+    {
+        "name": "Gwen",
+        "email": "gwen@gmail.com",
+        "done": false
+      }
   ]
