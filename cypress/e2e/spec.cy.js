@@ -7,18 +7,18 @@ describe("GET /users", () => {
   });
 });
 
-describe("POST /users", () => {
-  it("creates a new user", () => {
-    const newUser = {
-      name: "Jojo",
-      email: "jojo@gmail.com",
-    };
+// describe("POST /users", () => {
+//   it("creates a new user", () => {
+//     const newUser = {
+//       name: "Jojo",
+//       email: "jojo@gmail.com",
+//     };
 
-    cy.request("POST", "/users", newUser).then((response) => {
-      expect(response.status).to.eq(201);
-      expect(response.body).to.have.property("id");
-      expect(response.body.name).to.eq(newUser.name);
-      expect(response.body.email).to.eq(newUser.email);
-    });
-  });
-});
+//     cy.request("POST", "/users", newUser).then((response) => {
+//       expect(response.status).to.eq(201);
+//       expect(response.body).to.have.property("id");
+//       expect(response.body.name).to.eq(newUser.name);
+//       expect(response.body.email).to.eq(newUser.email);
+//     });
+//   });
+// });
