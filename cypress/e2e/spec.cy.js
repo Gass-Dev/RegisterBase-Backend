@@ -17,7 +17,7 @@ describe("POST /users", () => {
 
     cy.request("POST", "/users", newUser).then((response) => {
       expect(response.status).to.eq(201);
-      expect(response.body).to.have.property("id");
+      expect(response.body).to.have.property("_id"); // Ensure to check for _id as it's added by Mongoose
       expect(response.body.name).to.eq(newUser.name);
       expect(response.body.email).to.eq(newUser.email);
     });
